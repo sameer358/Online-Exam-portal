@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Database connection configuration
 $host = 'localhost';
 $username = 'root';
@@ -13,23 +11,32 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+// Check if the administrator account exists
+$sql = "SELECT * FROM administrators";
+$result = $conn->query($sql);
+
+if ($result->num_rows === 0) {
+  // If the administrators table is empty, display an error message
+  die("No administrator account found. Please create an administrator account.");
+}
+
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve form data
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  $adminUsername = $_POST['admin_username'];
+  $adminPassword = $_POST['admin_password'];
 
-  // Check if the username and password match a record in the database
-  $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+  // Check if the administrator credentials are valid
+  $sql = "SELECT * FROM administrators WHERE admin_username = '$adminUsername' AND admin_password = '$adminPassword'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
-    // Successful login, set the username in the session
-    $_SESSION['username'] = $username;
-    header("Location: dashboard.php");
+    // Valid administrator credentials, proceed to the user list page
+    header("Location: user_list.php");
     exit();
   } else {
-    // Invalid login credentials
-    $error = "Invalid username or password.";
+    // Invalid administrator credentials
+    $error = "Invalid administrator username or password.";
   }
 }
 
@@ -40,7 +47,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Admin Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -96,12 +103,12 @@ $conn->close();
   </style>
 </head>
 <body>
-  <h3>Login</h3>
+  <h3>Admin Login</h3>
 
-  <form action="login.php" method="POST">
-    <input type="text" name="username" placeholder="Username" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <input type="submit" value="Log in">
+  <form action="admin_login.php" method="POST">
+    <input type="text" name="admin_username" placeholder="Admin Username" required><br>
+    <input type="password" name="admin_password" placeholder="Admin Password" required><br>
+    <input type="submit" value="Login">
   </form>
 
   <?php if (isset($error)) { ?>

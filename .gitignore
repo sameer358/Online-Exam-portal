@@ -1,6 +1,6 @@
-dashboard/
-img/
-webalizer/
-xampp/
-favicon.ico/
-applications.html/
+/dashboard/*
+/img/*
+/webalizer/*
+/xampp/*
+/favicon.ico/*
+/applications.html/*

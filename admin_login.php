@@ -1,4 +1,5 @@
 <?php
+
 // Database connection configuration
 $host = 'localhost';
 $username = 'root';
@@ -11,12 +12,14 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the administrator account exists
-$sql = "SELECT * FROM administrators";
+// Check if the administrators table is empty
+$sql = "SELECT COUNT(*) AS count FROM administrators";
 $result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$adminCount = $row['count'];
 
-if ($result->num_rows === 0) {
-  // If the administrators table is empty, display an error message
+if ($adminCount === 0) {
+  // If there are no administrator accounts, display an error message
   die("No administrator account found. Please create an administrator account.");
 }
 
@@ -31,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
-    // Valid administrator credentials, proceed to the user list page
+    // Valid administrator credentials, proceed to the admin dashboard
     header("Location: admin_dashboard.php");
     exit();
   } else {
@@ -43,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Close the database connection
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html>

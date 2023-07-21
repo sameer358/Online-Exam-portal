@@ -11,6 +11,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve form data
   $username = $_POST['username'];
@@ -19,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Insert user into the database
   $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
   if ($conn->query($sql) === TRUE) {
-    echo "User created successfully." ;
+    $message = "User account has been created successfully.";
+    // Redirect to login.php after a delay of 1 seconds
+    header("refresh:1; url=login.php");
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -28,44 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Close the database connection
 $conn->close();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h3 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    p {
-      text-align: center;
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
- 
-</html>
 
 
 <?php
-    // Include the login.php content
-    include('login.php');
+  if (!empty($message)) {
+    // Display the success message
+    echo "<script>alert('$message');</script>";
+  }
   ?>
+</body>
+</html>

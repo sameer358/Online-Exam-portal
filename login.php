@@ -108,7 +108,7 @@ $conn->close();
     <p class="error"><?php echo $error; ?></p>
   <?php } ?>
   <footer>
-    <p>Back to <a href="dashboard.php">Dashboard</a></p>
+    <p>Back to <a href="index.php">Home Page</a></p>
     &copy; 2023 Online Exam. All rights reserved.
   </footer>
 </body>

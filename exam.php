@@ -73,12 +73,15 @@ input[type="submit"]:hover {
   $sql = "SELECT * FROM questions";
   $result = $conn->query($sql);
 
-  // Display questions in an HTML form
-  if ($result->num_rows > 0) {
+  
+ // Display questions in an HTML form
+ if ($result->num_rows > 0) {
   echo '<form action="submit_exam.php" method="post" target="result_frame">';
+  $questionCounter = 1; // Initialize the question counter
+
   while ($row = $result->fetch_assoc()) {
     echo '<div class="question">';
-    echo '<h3>'.$row['question'].'</h3>';
+    echo '<h3>Question '.$questionCounter.': '.$row['question'].'</h3>'; // Display the question number
     echo '<div class="options">';
     echo '<label>';
     echo '<input type="radio" name="answer_'.$row['id'].'" value="1" required>'.$row['option1'];
@@ -95,7 +98,10 @@ input[type="submit"]:hover {
     echo '</div>'; // closing div for options
     echo '</div>'; // closing div for question
     echo '<br>';
+
+    $questionCounter++; // Increment the question counter for the next question
   }
+
   echo '<div class="submit-button">';
   echo '<input type="submit" value="Submit Exam">';
   echo '</div>';
@@ -105,7 +111,6 @@ input[type="submit"]:hover {
   echo 'No questions found.';
   echo '</div>';
 }
-
 
   // Close the database connection
   $conn->close();

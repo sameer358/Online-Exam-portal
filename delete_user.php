@@ -40,3 +40,11 @@ if (isset($_GET['id'])) {
   exit();
 }
 ?>
+<html>
+    <body>
+<footer>
+    <p>Back to <a href="admin_dashboard.php">Admin Dashboard</a></p>
+    &copy; 2023 Online Exam. All rights reserved.
+  </footer>
+</body>
+</html>

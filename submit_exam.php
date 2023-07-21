@@ -157,11 +157,51 @@
     echo '<tr><td>' . $totalQuestions . '</td><td>' . $correctAnswers . '</td><td>' . $score . '%</td></tr>';
     echo '</table>';
 
+
+    // ... (Previous PHP code for database connection, student ID retrieval, etc.) ...
+  
+    // Display the result in a table with correct and incorrect answers
+    echo '<table>';
+    echo '<tr><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th></tr>';
+  
+    // Retrieve questions and answers from the database
+    $sql = "SELECT * FROM questions";
+    $result = $conn->query($sql);
+  
+    while ($row = $result->fetch_assoc()) {
+      $questionId = $row['id'];
+      $submittedAnswer = $_POST['answer_' . $questionId];
+      $correctAnswer = $row['answer'];
+      $isCorrect = $submittedAnswer === $correctAnswer;
+  
+      echo '<tr>';
+      echo '<td>' . $row['question'] . '</td>';
+      echo '<td>' . $submittedAnswer . '</td>';
+      echo '<td>' . $correctAnswer . '</td>';
+  
+      // Show the result (Correct or Incorrect) with different background colors
+      if ($isCorrect) {
+        echo '<td style="background-color: lightgreen; color: #000;">Correct</td>';
+      } else {
+        echo '<td style="background-color: lightcoral; color: #000;">Incorrect</td>';
+      }
+  
+      echo '</tr>';
+    }
+  
+    echo '</table>';
+  
+    // ... (The rest of the PHP code remains the same) ...
+  
+  
+  
+
     // Close the database connection
     $conn->close();
     ?>
 
     <p>Back to <a href="dashboard.php">Dashboard</a></p>
+    <p>Try once again <a href="exam.php">Exam</a></p>
   </main>
 
   <footer>

@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if ($result->num_rows > 0) {
     // Valid administrator credentials, proceed to the user list page
-    header("Location: user_list.php");
+    header("Location: admin_dashboard.php");
     exit();
   } else {
     // Invalid administrator credentials

@@ -68,5 +68,9 @@ $conn->close();
   </style>
 </head>
 <body>
+<footer>
+  <p>Back to <a href="index.php">Main Page</a></p>
+    &copy; 2023 Online Exam. All rights reserved.
+  </footer>
 </body>
 </html>

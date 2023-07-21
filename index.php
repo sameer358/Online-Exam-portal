@@ -2,6 +2,12 @@
 <html>
 <head>
   <title>Online Exam</title>
+  <header>
+  <br>
+  <h1>Online Exam</h1>
+
+</header>
+
   <style>
     /* CSS styles for header and footer */
     header {
@@ -14,7 +20,7 @@
     }
 
     footer {
-      background-color: #333;
+      background-color: skyblue;
       padding: 10px;
       color: #fff;
       text-align: center;
@@ -79,40 +85,69 @@
     .admin-login input[type="submit"] {
       margin: 5px;
     }
+
+    /* Additional CSS styles for exam dashboard look */
+    .dashboard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .dashboard .container {
+      flex-basis: 48%;
+      margin-bottom: 20px;
+    }
+
+    .dashboard .container h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .dashboard .container form {
+      margin-top: 20px;
+    }
+
+    .dashboard .container input[type="submit"] {
+      font-size: 16px;
+    }
+
+    /* Style the "Login as Admin" link */
+    .login-admin-link {
+      float: right;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .login-admin-link:hover {
+      color: #4caf50;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Online Exam</h1>
-  </header>
+<div class="dashboard">
+    <div class="container">
+      <h2>Create Account</h2>
+      <form action="create_account.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Signup">
+      </form>
+    </div>
 
-  <div class="container">
-    <h2>Signup</h2>
-    <form action="signup.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
-      <input type="submit" value="Signup">
-    </form>
-  </div>
-
-  <div class="container">
-    <h2>Login</h2>
-    <form action="login.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required><br>
-      <input type="password" name="password" placeholder="Password" required><br>
-      <input type="submit" value="Login">
-    </form>
-  </div>
-
-  <div class="admin-login">
-    <form action="admin_login.php" method="POST">
-      <input type="text" name="admin_username" placeholder="Admin Username" required>
-      <input type="password" name="admin_password" placeholder="Admin Password" required>
-      <input type="submit" value="Admin Login">
-    </form>
+    <div class="container">
+      <h2>Login</h2>
+      <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
   </div>
 
   <footer>
+  <p>Login as <a href="admin_login.php">Admin</a></p>
     &copy; 2023 Online Exam. All rights reserved.
   </footer>
 </body>

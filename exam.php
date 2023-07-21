@@ -110,6 +110,9 @@ input[type="submit"]:hover {
   // Close the database connection
   $conn->close();
   ?>
-
+  <footer>
+    <p>Back to <a href="dashboard.php">Dashboard</a></p>
+    &copy; 2023 Online Exam. All rights reserved.
+  </footer>
 </body>
 </html>

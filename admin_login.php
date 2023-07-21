@@ -114,5 +114,9 @@ $conn->close();
   <?php if (isset($error)) { ?>
     <p class="error"><?php echo $error; ?></p>
   <?php } ?>
+  <footer>
+  <p>Back to <a href="index.php">Main Page</a></p>
+    &copy; 2023 Online Exam. All rights reserved.
+  </footer>
 </body>
 </html>

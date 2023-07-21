@@ -66,3 +66,8 @@ $conn->close();
 </body>
 </html>
 
+
+<?php
+    // Include the login.php content
+    include('login.php');
+  ?>

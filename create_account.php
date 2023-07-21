@@ -61,9 +61,7 @@ $conn->close();
   </style>
 </head>
 <body>
-  <h3>Login</h3>
-  <p><a href="login.php">Login</a></p>
-</body>
+ 
 </html>
 
 

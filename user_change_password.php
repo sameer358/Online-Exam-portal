@@ -133,7 +133,7 @@ $conn->close();
             </div>
         </div>
         <footer>
-            <p>Back to <a href="user_list.php">User List</a></p>
+            <p>Back to <a href="dashboard.php">Dashboard</a></p>
             &copy; <?php echo date("Y"); ?> Online Exam. All rights reserved.
         </footer>
     </div>

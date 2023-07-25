@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($conn->query($sql) === TRUE) {
     $message = "User account has been created successfully.";
     // Redirect to login.php after a delay of 1 seconds
-    header("refresh:1; url=login.php");
+    header("refresh:0; url=login.php");
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
 <html>
     <body>
 <footer>
-    <p>Back to <a href="admin_dashboard.php">Admin Dashboard</a></p>
+    <p>Back to <a href="user_list.php">User List</a></p>
     &copy; 2023 Online Exam. All rights reserved.
   </footer>
 </body>

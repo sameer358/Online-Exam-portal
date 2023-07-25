@@ -47,31 +47,32 @@ $conn->close();
   <style>
     /* CSS styles for header and footer */
     header {
-      background-color: #7B7D7D; /* Transparent blue */
-      padding: 10px;
-      color: #fff;
-      text-align: center;
-      border: 1px solid transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 18px;
-    }
-
-    header a:hover {
-      text-decoration: underline;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-    }
+  background-color: #7B7D7D; /* Transparent blue */
+  padding: 5px; /* Further decrease the padding */
+  color: #fff;
+  text-align: center;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Add a gradient background */
+  background-image: linear-gradient(to right, #42557B, #7B7D7D);
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px; /* Further decrease the margin */
+  font-size: 14px; /* Further decrease the font size */
+}
+footer {
+  background-color: #7B7D7D; /* Transparent blue */
+  padding: 5px; /* Further decrease the padding */
+  color: #fff;
+  text-align: center;
+  grid-column: 1 / -1;
+  /* Add a gradient background */
+  background-image: linear-gradient(to right, #42557B, #7B7D7D);
+}
 
     footer {
       background-color: #7B7D7D; /* Transparent blue */

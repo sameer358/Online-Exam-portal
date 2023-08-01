@@ -74,7 +74,7 @@
   
   <main>
 
-<?php
+  <?php
 session_start();
 
 // Check if the username is set in the session
@@ -109,6 +109,33 @@ $result = $conn->query($sql);
 $totalQuestions = 0;
 $correctAnswers = 0;
 
+function is_serialized($data) {
+  if (is_string($data) && !empty($data)) {
+    return @unserialize($data) !== false;
+  }
+  return false;
+}
+function is_json($string) {
+  json_decode($string);
+  return (json_last_error() === JSON_ERROR_NONE);
+}
+
+// Function to check if a string is valid JSON or serialized data
+function is_json_or_serialized($data) {
+  if (is_string($data) && !empty($data)) {
+    // Check if the data is valid JSON
+    if (json_decode($data) !== null && json_last_error() === JSON_ERROR_NONE) {
+      return true;
+    }
+    // Check if the data is properly serialized
+    if (@unserialize($data) !== false) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
 // Process submitted answers and calculate the score
 while ($row = $result->fetch_assoc()) {
   $questionId = $row['id'];
@@ -137,23 +164,20 @@ if ($conn->query($sql) === false) {
   echo "Error saving the exam result: " . $conn->error;
 }
 
-// Display the result in a table
+// Display the overall result
 echo '<h2>Exam Result</h2>';
 echo '<table>';
 echo '<tr><th>Total Questions</th><th>Correct Answers</th><th>Score</th></tr>';
 echo '<tr><td>' . $totalQuestions . '</td><td>' . $correctAnswers . '</td><td>' . $score . '%</td></tr>';
 echo '</table>';
 
-// ... (previous code)
-
-// Display the result in a table with correct and incorrect answers
+// Display the question-wise result
 echo '<h2>Question-wise Result</h2>';
 echo '<table>';
 echo '<tr><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th></tr>';
 
-// Retrieve questions, answer options, and correct answers from the database
-$sql = "SELECT * FROM questions";
-$result = $conn->query($sql);
+// Reset the result pointer to the beginning of the result set
+$result->data_seek(0);
 
 while ($row = $result->fetch_assoc()) {
   $questionId = $row['id'];
@@ -174,30 +198,38 @@ while ($row = $result->fetch_assoc()) {
   }
 
   echo '</tr>';
+// Display the answer options for the current question if they exist
+echo '<tr><td colspan="4">';
+echo '<strong>Answer Options:</strong><br>';
+echo '<pre>' . $row['answer_options'] . '</pre>'; // Print the raw data of answer_options
 
-  // Display the answer options for the current question if they exist
-  echo '<tr><td colspan="4">';
-  echo '<strong>Answer Options:</strong><br>';
-
-  // Check if "answer_options" key exists and is properly serialized
-  if (isset($row['answer_options']) && is_serialized($row['answer_options'])) {
-    $answerOptions = unserialize($row['answer_options']);
+// Check if "answer_options" key exists and attempt to parse as JSON
+if (isset($row['answer_options']) && is_json($row['answer_options'])) {
+  $answerOptions = json_decode($row['answer_options'], true);
+  if (is_array($answerOptions)) {
     foreach ($answerOptions as $option) {
-      echo '<label><input type="radio" name="answer_' . $questionId . '" value="' . $option . '"> ' . $option . '</label><br>';
+      echo '<label><input type="radio" name="answer_' . $questionId . '" value="' . $option . '"';
+      if ($option === $submittedAnswer) {
+        echo ' checked'; // Mark the submitted answer as checked
+      }
+      echo '> ' . $option . '</label><br>';
     }
   } else {
-    // Handle the case when "answer_options" are not properly set or serialized
-    echo 'Answer options not available or not properly formatted.';
+    echo 'Answer options are not in a valid format.';
   }
-
-  echo '</td></tr>';
+} else {
+  // Handle the case when "answer_options" key does not exist or data is not valid JSON
+  echo 'Answer options not available or not properly formatted.';
 }
 
+echo '</td></tr>';
+}
 echo '</table>';
 
 // Close the database connection
 $conn->close();
 ?>
+
 
     <p>Back to <a href="dashboard.php">Dashboard</a></p>
     <p>Try once again <a href="exam.php">Exam</a></p>

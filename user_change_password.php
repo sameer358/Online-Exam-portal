@@ -62,21 +62,24 @@
             background-color: #45a049;
         }
         header {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  border: 1px solid transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
-}
+            background-color: #7B7D7D; /* Transparent blue */
+            padding: 5px; /* Further decrease the padding */
+            color: #fff;
+            text-align: center;
+            border: 1px solid transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Add a gradient background */
+            background-image: linear-gradient(to right, #42557B, #7B7D7D);
+        }
         /* Footer styling */
         
     </style>
 </head>
+<body>
+
+
 <?php
 $host = 'localhost';
 $username = 'root';
@@ -91,23 +94,35 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get data from the form
-$username = $_POST['username'];
-$new_password = $_POST['new_password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['username']) && isset($_POST['new_password'])) {
+        // Get data from the form
+        $username = $_POST['username'];
+        $new_password = $_POST['new_password'];
 
-// Update the user's password in the database
-$sql = "UPDATE users SET password = '$new_password' WHERE username = '$username'";
+        // Check if the user exists
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $result = $conn->query($sql);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Password changed successfully!";
-} else {
-    echo "Error updating password: " . $conn->error;
+        if ($result->num_rows > 0) {
+            // Update the user's password in the database
+            $sql = "UPDATE users SET password = '$new_password' WHERE username = '$username'";
+            if ($conn->query($sql) === TRUE) {
+                echo "Password changed successfully!";
+            } else {
+                echo "Error updating password: " . $conn->error;
+            }
+        } else {
+            echo "User does not exist.";
+        }
+    } else {
+        echo "Please provide both username and new password.";
+    }
 }
-
 $conn->close();
 ?>
 
-<body>
+
     <div class="container">
         <header>
             <!-- Header content goes here (if needed) -->
@@ -118,7 +133,7 @@ $conn->close();
                 <!-- Sidebar content goes here (if needed) -->
             </div>
             <div class="main">
-                <form action="change_password.php" method="post">
+                <form action="user_change_password.php" method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username">
                     

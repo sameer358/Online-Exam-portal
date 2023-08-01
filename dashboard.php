@@ -122,21 +122,18 @@ footer {
 .logout-btn:hover {
   background-color: #666;
 }
-
-
+.nav i {
+      margin-right: 5px; /* Adjust this value to change the space between icon and text */
+    }
   </style>
 </head>
 <body>
+
 <div class="header">
     <h1>Welcome to the Dashboard!</h1>
     <a class="logout-btn" href="logout.php">Logout</a>
-  </div>
 
-  <div class="nav">
-    <a href="dashboard.php">Home</a>
-    <a href="contact.php">Contact Us</a>
-    <a href="about.php">About Us</a>
-  </div>
+</div>
 
   <div class="main">
     <?php
@@ -191,15 +188,15 @@ echo '
 
     echo '
       <div class="container">
-        <h2>Exam</h2>
+        <h2>CS Exam</h2>
         <p><a href="exam.php">Take Exam</a></p>
       </div>
     ';
 
     echo '
       <div class="container">
-        <h2>See Result </h2>
-        <p><a href="submit_exam.php">Click me</a></p>
+        <h2>Previous Result </h2>
+        <p><a href="exam_result.php">Check Result</a></p>
       </div>
     ';
     ?>

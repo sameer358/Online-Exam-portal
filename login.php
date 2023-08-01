@@ -45,206 +45,207 @@ $conn->close();
 <head>
   <title>eExam Portal</title>
   <style>
-    /* CSS styles for header and footer */
-    header {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  border: 1px solid transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
+  /* Base styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 600px) 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  header {
+    background-color: #7b7d7d;
+    /* Transparent blue */
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Add a gradient background */
+    background-image: linear-gradient(to right, #42557b, #7b7d7d);
+    grid-column: 1 / -1;
+  }
+
+  header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+    /* Further decrease the margin */
+    font-size: 14px;
+    /* Further decrease the font size */
+  }
+
+  footer {
+    background-color: #7b7d7d;
+    /* Transparent blue */
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    grid-column: 1 / -1;
+    /* Add a gradient background */
+    background-image: linear-gradient(to right, #42557b, #7b7d7d);
+  }
+
+  /* Container styles */
+  .container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Transparent white */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Heading styles */
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  /* Form input styles */
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  /* Dashboard styles */
+  .dashboard {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Transparent white */
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dashboard .container {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+
+  .dashboard .container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard .container form {
+    margin-top: 20px;
+  }
+
+  .dashboard .container input[type="submit"] {
+    font-size: 16px;
+  }
+
+  /* Login link styles */
+  .login-admin-link {
+    float: right;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .login-admin-link:hover {
+    color: #4caf50;
+  }
+
+  p.login-link {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  p.login-link a {
+    color: #4caf50;
+    text-decoration: none;
+  }
+
+  p.login-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* Benefits styles */
+  .benefits {
+    grid-column: 1 / 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Transparent white */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .benefits-content {
+    padding: 20px;
+  }
+
+  .benefits-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Right-side styles */
+  .right-side {
+    grid-column: 3 / 4;
+    /* Place it on the 3rd grid column */
+    grid-row: 2 / 3;
+    /* Span 1 row */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Rectangle styles for MCA and BCA links */
+  .right-side a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border: 2px solid #4caf50;
+    /* Green border */
+    border-radius: 5px;
+  }
+
+  .right-side a:hover {
+    color: #4caf50;
+    background-color: #f9f9f9;
+    /* Light gray background on hover */
+  }
+  .error {
+  color: red; /* Set the text color to red for error messages */
+  font-size: 14px; /* Optionally adjust the font size */
+  margin-top: 10px; /* Optionally add some top margin to separate from the form */
 }
-header a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 5px; /* Further decrease the margin */
-  font-size: 14px; /* Further decrease the font size */
-}
-footer {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  grid-column: 1 / -1;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
-}
-
-    footer {
-      background-color: #7B7D7D; /* Transparent blue */
-      padding: 10px;
-      color: #fff;
-      text-align: center;
-      grid-column: 1 / -1;
-    }
-
-    /* Additional CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: transparent; /* Transparent background */
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr minmax(0, 600px) 1fr;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 400px;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-
-    /* Additional CSS styles for exam dashboard look */
-    .dashboard {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
-      border-radius: 5px;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .dashboard .container {
-      flex-basis: 100%;
-      margin-bottom: 20px;
-    }
-
-    .dashboard .container h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    .dashboard .container form {
-      margin-top: 20px;
-    }
-
-    .dashboard .container input[type="submit"] {
-      font-size: 16px;
-    }
-
-    /* Style the "Login as Admin" link */
-    .login-admin-link {
-      float: right;
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .login-admin-link:hover {
-      color: #4caf50;
-    }
-
-    /* Additional CSS styles for the "Login here" link */
-    p.login-link {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    p.login-link a {
-      color: #4caf50;
-      text-decoration: none;
-    }
-
-    p.login-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* CSS Grid layout areas */
-    header {
-      grid-column: 1 / -1;
-    }
-
-    .benefits {
-      grid-column: 1 / 2;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .benefits-content {
-      padding: 20px;
-    }
-
-    .benefits-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .dashboard {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-    }
-
-    footer {
-      grid-column: 1 / -1;
-    }
-    .right-side {
-  grid-column: 3 / 4; /* Place it on the 3rd grid column */
-  grid-row: 2 / 3; /* Span 1 row */
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Rectangle styles for MCA and BCA links */
-.right-side a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border: 2px solid #4caf50; /* Green border */
-  border-radius: 5px;
-}
-
-.right-side a:hover {
-  color: #4caf50;
-  background-color: #f9f9f9; /* Light gray background on hover */
-}
+</style>
 
 
-  </style>
 
 
 </head>

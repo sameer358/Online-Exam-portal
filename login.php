@@ -244,10 +244,6 @@ $conn->close();
   margin-top: 10px; /* Optionally add some top margin to separate from the form */
 }
 </style>
-
-
-
-
 </head>
 <body>
 <header>
@@ -256,6 +252,7 @@ $conn->close();
     <a href="#">Home</a>
     <a href="#">Contact Us</a>
     <a href="#">About Us</a>
+    
   </div>
 </header>
 <!-- Right side section -->
@@ -285,6 +282,9 @@ $conn->close();
 <div class="dashboard">
   <div class="container">
     <h2>Login Here</h2>
+    <?php if (isset($error)) { ?>
+      <p class="error"><?php echo $error; ?></p>
+    <?php } ?>
     <form action="login.php" method="POST">
     <input type="text" name="username" placeholder="Username" required><br>
     <input type="password" name="password" placeholder="Password" required><br>

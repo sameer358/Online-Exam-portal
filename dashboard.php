@@ -194,11 +194,11 @@ echo '
     ';
 
     echo '
-      <div class="container">
+    <div class="container">
         <h2>Previous Result </h2>
-        <p><a href="exam_result.php">Check Result</a></p>
-      </div>
-    ';
+        <p><a href="exam_result.php?username=' . $username . '">Check Result</a></p>
+    </div>
+';
     ?>
     
   </div>

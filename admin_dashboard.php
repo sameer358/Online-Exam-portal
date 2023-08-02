@@ -213,27 +213,35 @@
                 </table>
 
                 <p><a href="user_list.php">User List</a></p>
+                <a href="admin_exam_result.php" class="exam-result-link">View Exam Results</a>
                 <table>
                     <!-- Display user list from the database here -->
                 </table>
             </div>
 
             <form action="add_question.php" method="post">
-                <h2>Add New Question and Answer</h2>
-                <label>Question:</label>
-                <input type="text" name="question"><br>
-                <label>Option 1:</label>
-                <input type="text" name="option1"><br>
-                <label>Option 2:</label>
-                <input type="text" name="option2"><br>
-                <label>Option 3:</label>
-                <input type="text" name="option3"><br>
-                <label>Option 4:</label>
-                <input type="text" name="option4"><br>
-                <label>Answer:</label>
-                <input type="text" name="answer"><br>
-                <input type="submit" value="Add Question">
-            </form>
+    <h2>Add New Question and Answer</h2>
+    <label>Question:</label>
+    <input type="text" name="question"><br>
+    <label>Option 1:</label>
+    <input type="text" name="option1"><br>
+    <label>Option 2:</label>
+    <input type="text" name="option2"><br>
+    <label>Option 3:</label>
+    <input type="text" name="option3"><br>
+    <label>Option 4:</label>
+    <input type="text" name="option4"><br>
+    <label>Correct Option:</label>
+<select name="correct_option">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+</select><br>
+
+    <input type="submit" value="Add Question">
+</form>
+
 
             <div class="right-sidebar">
                 <h2>Change Password</h2>
@@ -253,6 +261,56 @@
                 </form>
             </div>
         </div>
+
+
+    <form action="add_question.php" method="post">
+        <!-- ... Existing form to add a question ... -->
+    </form>
+
+    <!-- Display Feedback Data -->
+    <div class="right-sidebar">
+        <h2>Feedback Data</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Feedback</th>
+            </tr>
+            <?php
+            // Database connection configuration
+            $host = 'localhost';
+            $username = 'root';
+            $password = 'root';
+            $database = 'quiz';
+
+            $conn = new mysqli($host, $username, $password, $database);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Retrieve feedback data from the database
+            $sql = "SELECT * FROM feedback";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['name'] . '</td>';
+                    echo '<td>' . $row['email'] . '</td>';
+                    echo '<td>' . $row['feedback'] . '</td>';
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr><td colspan="3">No feedback data available</td></tr>';
+            }
+
+            $conn->close();
+            ?>
+        </table>
+    </div>
+</div>
+
+<!-- ... Footer and closing tags ... -->
 
         <footer>
             <p>Back to <a href="index.php">Home page</a></p>

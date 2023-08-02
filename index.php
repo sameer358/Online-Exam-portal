@@ -208,8 +208,8 @@ footer {
 <header>
   <h1>eExam Portal</h1>
   <div class="menu">
-    <a href="#">Home</a>
-    <a href="#">Contact Us</a>
+    <a href="admin_login.php">Login as Admin</a>
+    <a href="feedback.php">Feedback</a>
     <a href="#">About Us</a>
   </div>
 </header>
@@ -251,7 +251,6 @@ footer {
 </div>
 
 <footer>
-  <p>Login as <a href="admin_login.php">Admin</a></p>
   &copy; 2023 Online Exam. All rights reserved.
 </footer>
 </body>

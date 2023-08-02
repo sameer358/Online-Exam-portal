@@ -199,16 +199,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
   }
 
-  // Save the exam result in the exam_results table
-  $sql = "INSERT INTO exam_results (username, total_questions, correct_answers, score)
-          VALUES ('$username', '$totalQuestions', '$correctAnswers', '$score')
-          ON DUPLICATE KEY UPDATE total_questions = '$totalQuestions',
-                                  correct_answers = '$correctAnswers',
-                                  score = '$score'";
+// Save the exam result in the exam_results table
+$attemptDate = date("Y-m-d"); // Get the current date in YYYY-MM-DD format
+$attemptTime = date("H:i:s"); // Get the current time in HH:MM:SS format
 
-  if ($conn->query($sql) === false) {
+$sql = "INSERT INTO exam_results (username, total_questions, correct_answers, score, attempt_date, attempt_time)
+        VALUES ('$username', '$totalQuestions', '$correctAnswers', '$score', '$attemptDate', '$attemptTime')
+        ON DUPLICATE KEY UPDATE total_questions = '$totalQuestions',
+                                correct_answers = '$correctAnswers',
+                                score = '$score',
+                                attempt_date = '$attemptDate',
+                                attempt_time = '$attemptTime'";
+
+if ($conn->query($sql) === false) {
     echo "Error saving the exam result: " . $conn->error;
-  }
+}
+
 
   // Close the database connection
   $conn->close();

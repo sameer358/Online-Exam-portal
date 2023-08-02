@@ -231,8 +231,8 @@ $conn->close();
 ?>
 
 
-    <p>Back to <a href="dashboard.php">Dashboard</a></p>
-    <p>Try once again <a href="exam.php">Exam</a></p>
+<a class="back-link" href="dashboard.php">Back to Dashboard</a>
+    <p>Re-attempt <a href="exam.php">Exam</a></p>
   </main>
 
   <footer>

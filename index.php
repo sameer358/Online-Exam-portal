@@ -217,13 +217,13 @@ footer {
 
 <div class="right-side">
 <h2>Knowledge Base Article</h2>
-  <a href="#">Defensive Cyber Security Technologies</a>
-  <a href="#">Artificial Intelligence and Machine Learning</a>
-  <a href="#"> Internet of Things</a>
-  <a href="#"> Big Data Analytics</a>
-  <a href="#"> IT Project Management</a>
-  <a href="#"> Python</a>
-  <a href="#"> Php & MySQL</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank">Defensive Cyber Security Technologies</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank">Artificial Intelligence and Machine Learning</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Internet of Things</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Big Data Analytics</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> IT Project Management</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Python</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Php & MySQL</a>
   
 </div>
 
@@ -241,6 +241,8 @@ footer {
   <div class="container">
     <h2>Create an account</h2>
     <form action="create_account.php" method="POST">
+    <input type="text" name="full_name" placeholder="Full Name" required><br>
+    <input type="text" name="email" placeholder="email" required><br>
       <input type="text" name="username" placeholder="Username" required><br>
       <input type="password" name="password" placeholder="Password" required><br>
       <input type="submit" value="Signup">

@@ -17,9 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve form data
   $username = $_POST['username'];
   $password = $_POST['password'];
-
+  $email = $_POST['email'];
+  $full_name =$_POST['full_name'];
   // Insert user into the database
-  $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+  $sql = "INSERT INTO users (username, password, email,full_name) VALUES ('$username', '$password', '$email', '$full_name')";
   if ($conn->query($sql) === TRUE) {
     $message = "User account has been created successfully.";
     // Redirect to login.php after a delay of 1 seconds

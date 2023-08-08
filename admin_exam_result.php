@@ -36,6 +36,25 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        /* Additional style for button */
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s;
+    }
+
+    /* Button hover effect */
+    .button:hover {
+        background-color: #45a049;
+    }
     </style>
 </head>
 <body>
@@ -91,6 +110,9 @@
     $conn->close();
     ?>
 </table>
-<a class="back-link" href="admin_dashboard.php">Back to Dashboard</a>
+<div class="download-link">
+<a href="download_results.php" target="_blank" class="button">Download Exam Result Report</a>
+<a href="admin_dashboard.php" class="button">Back to Dashboard</a>
+</div>
 </body>
 </html>

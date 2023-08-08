@@ -3,8 +3,16 @@
 <head>
   <title>Admin Login</title>
   <style>
-    /* Reset some default styles */
-    body, h3, form {
+    /* ... (existing styles) ... */
+
+    /* Additional styles for password hint */
+    .password-hint {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+    }
+  /* Reset some default styles */
+  body, h3, form {
       margin: 0;
       padding: 0;
     }
@@ -120,11 +128,10 @@
     </header>
 
     <div class="main-content">
-      
-
       <form action="admin_login.php" method="POST">
         <input type="text" name="admin_username" placeholder="Admin Username" required><br>
-        <input type="password" name="admin_password" placeholder="Admin Password" required><br>
+        <input type="password" name="admin_password" placeholder="Admin Password" ><br>
+  
         <input type="submit" value="Login">
         <?php
 

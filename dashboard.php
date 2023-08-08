@@ -136,7 +136,7 @@ footer {
 </div>
 
   <div class="main">
-    <?php
+  <?php
     // Database connection configuration (replace with your own credentials)
     $host = 'localhost';
     $username = 'root';
@@ -159,47 +159,48 @@ footer {
       exit();
     }
 
-  // Retrieve the username from the session
-$username = $_SESSION['username'];
+    // Retrieve the username from the session
+    $username = $_SESSION['username'];
 
-// Retrieve other user information from the database (you may need to adjust the column names)
-$sql_user_info = "SELECT * FROM users WHERE username = '$username'";
-$result_user_info = mysqli_query($conn, $sql_user_info);
+    // Retrieve other user information from the database
+    $sql_user_info = "SELECT * FROM users WHERE username = '$username'";
+    $result_user_info = mysqli_query($conn, $sql_user_info);
 
-// Check if the query executed successfully
-if (!$result_user_info) {
-    die("Error executing the SELECT query: " . mysqli_error($conn));
-}
+    // Check if the query executed successfully
+    if (!$result_user_info) {
+        die("Error executing the SELECT query: " . mysqli_error($conn));
+    }
 
-// Fetch user information from the database
-$user_info = mysqli_fetch_assoc($result_user_info);
+    // Fetch user information from the database
+    $user_info = mysqli_fetch_assoc($result_user_info);
 
-// Display the user information
-echo '
-  <div class="container">
-    <h2>User Information</h2>
-    <p>User ID: ' . $user_info['id'] . '</p>
-    <p>Student Name: ' . ucfirst($user_info['username']) . '</p>
-    <p><a href="user_change_password.php">Change User password</a></p>
-  
-  </div>
-';
-
-
+    // Display the user information
     echo '
-      <div class="container">
-        <h2>CS Exam</h2>
-        <p><a href="exam.php">Take Exam</a></p>
-      </div>
+    <div class="container">
+        <h2>User Information</h2>
+        <p>User ID: ' . $user_info['id'] . '</p>
+        <p>User Name: ' . ucfirst($user_info['username']) . '</p>
+        <p>Full Name: ' . ucfirst($user_info['full_name']) . '</p>
+        <p>Email: ' . $user_info['email'] . '</p>
+        <p><a href="user_change_password.php">Change User Password</a></p>
+    </div>
     ';
 
     echo '
     <div class="container">
-        <h2>Previous Result </h2>
-        <p><a href="exam_result.php?username=' . $username . '">Check Result</a></p>
+        <h2>CS Exam</h2>
+        <p><a href="exam.php">Take Exam</a></p>
     </div>
-';
-    ?>
+    ';
+
+    echo '
+    <div class="container">
+        <h2>Previous Result</h2>
+        <p><a href="exam_result.php?username=' . $username . '">Check Previous Result</a></p>
+    </div>
+    ';
+?>
+
     
   </div>
   <div class="footer">

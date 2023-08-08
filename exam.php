@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Online Exam</title>
+<header>
+    <p>Session Timer: <span id="sessionTimer"></span></p>
+    <p>Back to <a href="dashboard.php">Dashboard</a> | <a href="logout.php">Logout</a>
+    </p>
+  </header>
 
   <style>
     /* CSS code for online exam portal */
@@ -92,6 +96,94 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Reset default styles for better consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.options label:hover {
+  background-color: #f5f5f5;
+}
+
+.options input[type="radio"] {
+  margin-right: 10px;
+}
+
+.submit-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
 
 
   </style>
@@ -112,7 +204,24 @@ footer a:hover {
 	
 	
   }
+  session_start(); // Start or resume the session
 
+  // Check if the user is logged in
+  if (!isset($_SESSION['username'])) {
+    header("Location: login.php"); // Redirect to the login page if not logged in
+    exit();
+  }
+  
+  // Set the session timer (in seconds)
+  $sessionTimeout = 1800; // 30 minutes
+  if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $sessionTimeout)) {
+    session_unset(); // Unset all session variables
+    session_destroy(); // Destroy the session
+    header("Location: login.php"); // Redirect to the login page
+    exit();
+  }
+  
+  $_SESSION['last_activity'] = time(); // Update last activity time
   // Retrieve questions from the database
   $sql = "SELECT * FROM questions";
   $result = $conn->query($sql);
@@ -220,10 +329,35 @@ if ($conn->query($sql) === false) {
   $conn->close();
 }
 ?>
- 
+   <script>
+    // JavaScript function to update and display the session timer
+    function updateSessionTimer() {
+      var sessionTimeout = <?php echo $sessionTimeout; ?>; // Session timeout in seconds
+      var currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+      var elapsedTime = currentTime - <?php echo $_SESSION['last_activity']; ?>;
+      var remainingTime = sessionTimeout - elapsedTime;
+
+      var minutes = Math.floor(remainingTime / 60);
+      var seconds = remainingTime % 60;
+
+      // Update the timer display
+      var timerDisplay = document.getElementById("sessionTimer");
+      timerDisplay.textContent = minutes + "m " + seconds + "s";
+
+      // Redirect to logout page when session expires
+      if (remainingTime <= 0) {
+        window.location.href = "logout.php";
+      }
+    }
+
+    // Update the timer every second
+    setInterval(updateSessionTimer, 1000);
+    
+  </script>
   <footer>
-    <p>Back to <a href="dashboard.php">Dashboard</a></p>
-    &copy; 2023 Online Exam. All rights reserved.
+  
+
+    &copy; 2023 Online Exam. All rights reserved
   </footer>
 </body>
 </html>

@@ -249,8 +249,7 @@ $conn->close();
 <header>
   <h1>eExam Portal</h1>
   <div class="menu">
-    <a href="#">Home</a>
-    <a href="#">Contact Us</a>
+    <a href="admin_login.php">Login as Admin</a>
     <a href="#">About Us</a>
     
   </div>
@@ -259,13 +258,13 @@ $conn->close();
 
 <div class="right-side">
 <h2>Knowledge Base Article</h2>
-  <a href="#">Defensive Cyber Security Technologies</a>
-  <a href="#">Artificial Intelligence and Machine Learning</a>
-  <a href="#"> Internet of Things</a>
-  <a href="#"> Big Data Analytics</a>
-  <a href="#"> IT Project Management</a>
-  <a href="#"> Python</a>
-  <a href="#"> Php & MySQL</a>
+<a href="https://enhanceofit.blogspot.com/" target="_blank">Defensive Cyber Security Technologies</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank">Artificial Intelligence and Machine Learning</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Internet of Things</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Big Data Analytics</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank">IT Project Management</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Python</a>
+  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Php & MySQL</a>
   
 </div>
 
@@ -295,7 +294,6 @@ $conn->close();
 </div>
 
 <footer>
-  <p>Login as <a href="admin_login.php">Admin</a></p>
   &copy; 2023 Online Exam. All rights reserved.
 </footer>
 </body>

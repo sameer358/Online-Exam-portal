@@ -207,16 +207,7 @@
 
         <div class="main-content">
             <div class="left-sidebar">
-                <h2>Student Results</h2>
-                <table>
-                    <!-- Display student results from the database here -->
-                </table>
-
-                <p><a href="user_list.php">User List</a></p>
-                <a href="admin_exam_result.php" class="exam-result-link">View Exam Results</a>
-                <table>
-                    <!-- Display user list from the database here -->
-                </table>
+                
             </div>
 
             <form action="add_question.php" method="post">
@@ -244,20 +235,12 @@
 
 
             <div class="right-sidebar">
-                <h2>Change Password</h2>
-                <form action="change_password.php" method="post">
-                    <label>Username:</label>
-                    <input type="text" name="username"><br>
-                    <label>New Password:</label>
-                    <input type="password" name="new_password"><br>
-                    <input type="submit" value="Change Password">
-                </form>
-
-                <h2>Delete User Account</h2>
-                <form action="delete_user.php" method="post">
-                    <label>Username:</label>
-                    <input type="text" name="username"><br>
-                    <input type="submit" value="Delete User">
+                <h2>User Details</h2>
+                <form action="user_list.php" method="post">
+                    <input type="submit" value="All User List">
+    </form>
+                <form action="admin_exam_result.php" method="post">
+                    <input type="submit" value="All User Result">
                 </form>
             </div>
         </div>

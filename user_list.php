@@ -151,6 +151,7 @@
             </div>
             <div class="right-sidebar">
                 <!-- You can add content to the right sidebar here if needed -->
+                
             </div>
         </div>
         <footer>

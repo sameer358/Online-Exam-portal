@@ -11,7 +11,18 @@ $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+// Handle delete action if an ID is provided
+if(isset($_GET['delete_id'])) {
+    $deleteId = $_GET['delete_id'];
+    $deleteSql = "DELETE FROM questions WHERE id = $deleteId";
+    
+    if ($conn->query($deleteSql)) {
+        header("Location: all_question.php"); // Redirect back to the same page after deleting
+        exit();
+    } else {
+        echo "Error deleting question: " . $conn->error;
+    }
+}
 // Fetch questions from the database
 $sql = "SELECT * FROM questions";
 $result = $conn->query($sql);
@@ -74,6 +85,7 @@ if (!$result) {
             <th>Option 4</th>
             <th>Correct Option</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()) { ?>
             <tr>
@@ -85,9 +97,12 @@ if (!$result) {
                 <td><?php echo $row['option4']; ?></td>
                 <td><?php echo $row['answer']; ?></td>
                 <td><a href="edit_question.php?id=<?php echo $row['id']; ?>">Edit</a></td>
+                <td><a href="?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this question?')">Delete</a></td>
+            
             </tr>
         <?php } ?>
     </table>
+    <p class="login-link">Back to <a href="admin_dashboard.php">Dashboard</a></p>
 </body>
 </html>
 

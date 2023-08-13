@@ -60,6 +60,7 @@ if (!$result) {
         td a:hover {
             text-decoration: underline;
         }
+        
     </style>
 </head>
 <body>
@@ -86,6 +87,7 @@ if (!$result) {
             </tr>
         <?php } ?>
     </table>
+    <p class="login-link">Back to <a href="all_question.php">All Question List</a></p>
 </body>
 </html>
 

@@ -44,6 +44,7 @@ footer {
     body {
       font-family: Arial, sans-serif;
       background-color: transparent; /* Transparent background */
+      background-image: url("login1.jpeg");
       margin: 0;
       padding: 0;
       display: grid;
@@ -51,6 +52,7 @@ footer {
       grid-template-rows: auto 1fr auto;
       min-height: 100vh;
     }
+ 
 
     .container {
       max-width: 400px;
@@ -78,7 +80,7 @@ footer {
     input[type="submit"] {
       width: 100%;
       padding: 10px;
-      background-color: #4caf50;
+      background-color: #007bff;
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -86,21 +88,9 @@ footer {
     }
 
     input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-
-    /* Additional CSS styles for exam dashboard look */
-    .dashboard {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
-      border-radius: 5px;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+    background-color: #0056b3;
+}
+   
 
     .dashboard .container {
       flex-basis: 100%;
@@ -129,7 +119,8 @@ footer {
     }
 
     .login-admin-link:hover {
-      color: #4caf50;
+      color: #007bff;
+      
     }
 
     /* Additional CSS styles for the "Login here" link */
@@ -152,23 +143,6 @@ footer {
       grid-column: 1 / -1;
     }
 
-    .benefits {
-      grid-column: 1 / 2;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white */
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .benefits-content {
-      padding: 20px;
-    }
-
-    .benefits-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
 
     .dashboard {
       grid-column: 2 / 3;
@@ -178,30 +152,7 @@ footer {
     footer {
       grid-column: 1 / -1;
     }
-    .right-side {
-  grid-column: 3 / 4; /* Place it on the 3rd grid column */
-  grid-row: 2 / 3; /* Span 1 row */
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Rectangle styles for MCA and BCA links */
-.right-side a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border: 2px solid #4caf50; /* Green border */
-  border-radius: 5px;
-}
-
-.right-side a:hover {
-  color: #4caf50;
-  background-color: #f9f9f9; /* Light gray background on hover */
-}
-
-
+ 
   </style>
 </head>
 <body>
@@ -213,29 +164,6 @@ footer {
     <a href="#">About Us</a>
   </div>
 </header>
-<!-- Right side section -->
-
-<div class="right-side">
-<h2>Knowledge Base Article</h2>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank">Defensive Cyber Security Technologies</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank">Artificial Intelligence and Machine Learning</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Internet of Things</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Big Data Analytics</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank"> IT Project Management</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Python</a>
-  <a href="https://enhanceofit.blogspot.com/" target="_blank"> Php & MySQL</a>
-  
-</div>
-
-<div class="benefits">
-  <div class="benefits-content">
-    <h2>Benefits of eExam Portal</h2>
-    <p> Convenience: Take exams from anywhere with an internet connection.</p>
-    <p> Time-Saving: No need to travel to a physical location for exams.</p>
-    <p> Immediate Results: Get instant feedback on your performance.</p>
-    <p> Environmentally Friendly: Reduce paper waste with digital exams.</p>
-  </div>
-</div>
 
 <div class="dashboard">
   <div class="container">

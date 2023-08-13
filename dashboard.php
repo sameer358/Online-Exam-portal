@@ -125,6 +125,7 @@ footer {
 .nav i {
       margin-right: 5px; /* Adjust this value to change the space between icon and text */
     }
+    
   </style>
 </head>
 <body>

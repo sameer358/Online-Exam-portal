@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Exam Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -64,6 +66,18 @@
   /* Add a gradient background */
   background-image: linear-gradient(to right, #42557B, #7B7D7D);
     }
+    @media only screen and (max-width: 600px) {
+  /* Adjustments for small screens */
+  header {
+    padding: 5px;
+  }
+  main {
+    max-width: 100%; /* Adjust as needed */
+    padding: 10px;
+  }
+  /* Add more styles for other elements */
+}
+
   </style>
 </head>
 <body>
@@ -196,40 +210,14 @@ while ($row = $result->fetch_assoc()) {
   } else {
     echo '<td style="background-color: lightcoral; color: #000;">Incorrect</td>';
   }
-
   echo '</tr>';
-// Display the answer options for the current question if they exist
-echo '<tr><td colspan="4">';
-echo '<strong>Answer Options:</strong><br>';
-echo '<pre>' . $row['answer_options'] . '</pre>'; // Print the raw data of answer_options
 
-// Check if "answer_options" key exists and attempt to parse as JSON
-if (isset($row['answer_options']) && is_json($row['answer_options'])) {
-  $answerOptions = json_decode($row['answer_options'], true);
-  if (is_array($answerOptions)) {
-    foreach ($answerOptions as $option) {
-      echo '<label><input type="radio" name="answer_' . $questionId . '" value="' . $option . '"';
-      if ($option === $submittedAnswer) {
-        echo ' checked'; // Mark the submitted answer as checked
-      }
-      echo '> ' . $option . '</label><br>';
-    }
-  } else {
-    echo 'Answer options are not in a valid format.';
-  }
-} else {
-  // Handle the case when "answer_options" key does not exist or data is not valid JSON
-  echo 'Answer options not available or not properly formatted.';
-}
-
-echo '</td></tr>';
 }
 echo '</table>';
 
 // Close the database connection
 $conn->close();
 ?>
-
 
 <a class="back-link" href="dashboard.php">Back to Dashboard</a>
     <p>Re-attempt <a href="exam.php">Exam</a></p>

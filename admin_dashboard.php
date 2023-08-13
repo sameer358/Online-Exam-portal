@@ -3,199 +3,134 @@
 <head>
     <title>Admin Dashboard</title>
     <style>
-      form {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2em;
-            font-weight: bold;
-        }
-
-        h2 {
-            margin-top: 40px;
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        form {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-        }
-
-        label {
-            display: inline-block;
-            width: 100px;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 300px;
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            background-color: #7B7D7D;
-            padding: 5px;
-            color: #fff;
-            text-align: center;
-        }
-
-        footer {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  grid-column: 1 / -1;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Holy Grail layout styles */
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  border: 1px solid transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-        .logout-btn {
-            padding: 5px 10px;
-            background-color: #444;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+/* Header Styles */
+header {
+    background-image: linear-gradient(to right, #42557B, #7B7D7D);
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
 
-        .logout-btn:hover {
-            background-color: #666;
-        }
+.logout-btn {
+    padding: 5px 10px;
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
-        .main-content {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
+.logout-btn:hover {
+    background-color: #666;
+}
 
-        .left-sidebar,
-        .right-sidebar {
-            flex-basis: 200px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+/* Sidebar Styles */
+.left-sidebar,
+.right-sidebar {
+    flex-basis: 200px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 20px;
+}
 
-        .left-sidebar {
-            margin-right: 20px;
-        }
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
 
-        .right-sidebar {
-            margin-left: 20px;
-        }
+/* Form Styles */
+form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .main-content form {
-            flex: 1;
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Feedback Table Styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Footer Styles */
+footer {
+    background-image: linear-gradient(to right, #42557B, #7B7D7D);
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+
     </style>
 </head>
 <body>
@@ -207,7 +142,13 @@
 
         <div class="main-content">
             <div class="left-sidebar">
-                
+            <h2>Question Secation</h2>
+            <form action="view_questions.php" method="post">
+                    <input type="submit" value="View All Question Here ">
+    </form>
+    <form action="all_question.php" method="post">
+                    <input type="submit" value="Edit and Delete ">
+    </form>
             </div>
 
             <form action="add_question.php" method="post">
@@ -235,7 +176,7 @@
 
 
             <div class="right-sidebar">
-                <h2>User Details</h2>
+                <h2>Manage User</h2>
                 <form action="user_list.php" method="post">
                     <input type="submit" value="All User List">
     </form>

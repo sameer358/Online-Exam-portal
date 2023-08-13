@@ -74,6 +74,7 @@
             display: block;
             margin-top: 20px;
         }
+        
     </style>
 </head>
 <body>
@@ -117,6 +118,8 @@ if (isset($_GET['username'])) {
                 ?>
                 <tr>
                     <td><?php echo $row["attempt_date"] . ' ' . $row["attempt_time"]; ?></td>
+
+
                     <td><?php echo $row["total_questions"]; ?></td>
                     <td><?php echo $row["correct_answers"]; ?></td>
                     <td><?php echo $row["score"]; ?></td>

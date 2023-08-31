@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Feedback Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,36 +19,54 @@
         }
 
         label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin-bottom: 0.5rem;
         }
 
         textarea {
             resize: vertical;
         }
 
-        button {
-            padding: 10px 15px;
+        .btn-primary {
             background-color: #007bff;
-            color: #fff;
             border: none;
             border-radius: 4px;
-            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 10px;
         }
     </style>
 </head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">eExam Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="admin_login.php">Login as Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="feedback.php">Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
 <body>
 
 <div class="container">
-    <h2>Feedback Form</h2>
+    <h2 class="mt-4">Feedback Form</h2>
     <?php
     // Database connection configuration
     $host = 'localhost';
@@ -75,9 +95,9 @@
         $sql = "INSERT INTO feedback (name, email, feedback) VALUES ('$name', '$email', '$feedback')";
 
         if ($conn->query($sql) === true) {
-            echo "<p class='success'>Feedback submitted successfully.</p>";
+            echo "<p class='text-success'>Feedback submitted successfully.</p>";
         } else {
-            echo "<p class='error'>Error submitting feedback: " . $conn->error . "</p>";
+            echo "<p class='text-danger'>Error submitting feedback: " . $conn->error . "</p>";
         }
 
         // Close the database connection
@@ -85,18 +105,25 @@
     }
     ?>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<?php echo $name; ?>" required>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo $name; ?>" required>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?php echo $email; ?>" required>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
+        </div>
 
-        <label for="feedback">Feedback:</label>
-        <textarea id="feedback" name="feedback" rows="4" required><?php echo $feedback; ?></textarea>
+        <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea class="form-control" id="feedback" name="feedback" rows="4" required><?php echo $feedback; ?></textarea>
+        </div>
 
-        <button type="submit">Submit Feedback</button>
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
     </form>
+    <a class="back-link" href="index.php">Back to Home</a>
 </div>
-<a class="back-link" href="index.php">Back to Homepage</a>
+
 </body>
 </html>

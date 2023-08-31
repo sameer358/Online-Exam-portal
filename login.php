@@ -44,130 +44,32 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<style>  
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-}
-
-.background {
-    background-image: url('login1.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header {
-    background-color: #7B7D7D;
-    padding: 10px;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-image: linear-gradient(to right, #42557B, #7B7D7D);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-header a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
-
-.dashboard {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.container {
-    text-align: center;
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.error {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 20px;
-    }
-    
-    input[type="text"],
-    input[type="password"],
-    input[type="submit"] {
-        font-size: 14px;
-    }
-    
-    .error {
-        font-size: 12px;
-    }
-}
-</style>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Login Page Header</h1>
-    </header>
-    
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">eExam Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="admin_login.php">Login as Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="feedback.php">Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
     <!-- Content Section -->
     <div class="background">
         <div class="dashboard">
@@ -182,7 +84,7 @@ footer {
                     <input type="submit" value="Log in">
                 </form>
                 <p>Don't have an account? <a href="index.php">Create one</a></p>
-                <p>Login as <a href="admin_login.php">Adminstrator</a></p>
+                
             </div>
         </div>
     </div>
@@ -190,6 +92,9 @@ footer {
     <footer style="background-color: #333; color: white; padding: 10px; text-align: center;">
         <p>&copy; <?php echo date("Y"); ?> Your Website. All Rights Reserved.</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 

@@ -152,19 +152,19 @@ footer a:hover {
             </div>
 
             <form action="add_question.php" method="post">
-    <h2>Add New Question and Answer</h2>
+            <h2>Add New Question and Answer</h2>
     <label>Question:</label>
-    <input type="text" name="question"><br>
+    <input type="text" name="question" required><br>
     <label>Option 1:</label>
-    <input type="text" name="option1"><br>
+    <input type="text" name="option1" required><br>
     <label>Option 2:</label>
-    <input type="text" name="option2"><br>
+    <input type="text" name="option2" required><br>
     <label>Option 3:</label>
-    <input type="text" name="option3"><br>
+    <input type="text" name="option3" required><br>
     <label>Option 4:</label>
-    <input type="text" name="option4"><br>
+    <input type="text" name="option4" required><br>
     <label>Correct Option:</label>
-<select name="correct_option">
+<select name="correct_option" required>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
@@ -173,6 +173,8 @@ footer a:hover {
 
     <input type="submit" value="Add Question">
 </form>
+
+
 
 
             <div class="right-sidebar">

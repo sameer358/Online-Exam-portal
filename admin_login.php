@@ -2,124 +2,11 @@
 <html>
 <head>
   <title>Admin Login</title>
-  <style>
-    /* ... (existing styles) ... */
-
-    /* Additional styles for password hint */
-    .password-hint {
-      font-size: 12px;
-      color: #999;
-      margin-top: 5px;
-    }
-  /* Reset some default styles */
-  body, h3, form {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-    }
-
-    /* Container for the Holy Grail layout */
-    .container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* Header styles */
-    header {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  border: 1px solid transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
-    }
-
-    /* Footer styles */
-    footer {
-  background-color: #7B7D7D; /* Transparent blue */
-  padding: 5px; /* Further decrease the padding */
-  color: #fff;
-  text-align: center;
-  grid-column: 1 / -1;
-  /* Add a gradient background */
-  background-image: linear-gradient(to right, #42557B, #7B7D7D);
-}
-
-    /* Main content area */
-    .main-content {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-    }
-
-    /* Left sidebar styles */
-    .left-sidebar {
-      flex: 0 0 200px;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Right sidebar styles */
-    .right-sidebar {
-      flex: 0 0 200px;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Form styles */
-    form {
-      flex: 1;
-      max-width: 300px;
-      background-color: #fff;
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #45a049;
-    }
-
-    .error {
-      color: red;
-      text-align: center;
-      margin-top: 10px;
-    }
-  </style>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -189,8 +76,8 @@ $conn->close();
     </div>
 
     <footer>
-      <p>Back to <a href="index.php">Main Page</a></p>
-      &copy; <?php echo date('Y'); ?> Online Exam. All rights reserved.
+      <p>Back to <a href="index.php">Home</a></p>
+     
     </footer>
   </div>
 </body>

@@ -34,7 +34,7 @@ Welcome to the Online Exam Portal, a comprehensive web application that provides
 1. Clone this repository to your server directory using:
 
    ```bash
-   git clone [https://github.com/sameer358/Online-Exam-portal]
+   git clone https://github.com/sameer358/Online-Exam-portal
 Import the quiz.sql database 
 Admin Login Credential -> Username: Admin and password: Admin@123
 

@@ -5,9 +5,6 @@ Welcome to the Online Exam Portal, a comprehensive web application that provides
 
 ![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/adf9106c-7f9b-4835-9aa5-50b315316a2c)
 ![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/589dcf0c-b25d-4b00-bad1-9eea6c8cc0cb)
-![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/d856b252-ec4b-47d1-84f0-26fd3b5e98f4)
-![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/97559615-c239-4e66-af38-980a6c55c720)
-![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/d142d6d3-678f-451c-93fb-565be3b2d517)
 
 
 ## Features

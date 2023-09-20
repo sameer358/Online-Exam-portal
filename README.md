@@ -2,9 +2,11 @@
 
 Welcome to the Online Exam Portal, a comprehensive web application that provides both students and administrators with a platform for managing exams, courses, questions, and results.
 
+<img width="962" alt="Exam Portal1" src="https://github.com/sameer358/Online-Exam-portal/assets/24916603/61a39722-d608-4be3-a8b2-6a99191988f4">
+<img width="941" alt="Adminportal3" src="https://github.com/sameer358/Online-Exam-portal/assets/24916603/8c676955-adf0-456c-a25f-79aa14b3a2d8">
+<img width="950" alt="Portal4" src="https://github.com/sameer358/Online-Exam-portal/assets/24916603/e6c8a139-d65b-45ec-8f82-c798172f24a5">
+<img width="962" alt="Exam portal2" src="https://github.com/sameer358/Online-Exam-portal/assets/24916603/465c4d0c-c1e2-45b3-8dd6-3590bf10ef1d">
 
-![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/adf9106c-7f9b-4835-9aa5-50b315316a2c)
-![image](https://github.com/sameer358/Online-Exam-portal/assets/24916603/589dcf0c-b25d-4b00-bad1-9eea6c8cc0cb)
 
 
 ## Features

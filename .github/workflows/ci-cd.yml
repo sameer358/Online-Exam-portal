@@ -1,0 +1,35 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install PHP dependencies
+        run: |
+          sudo dnf install -y php-cli
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php
+          php -r "unlink('composer-setup.php');"
+          php composer.phar install
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit tests/
+
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@v2
+        with:
+          server: ${{ 13.201.52.161 }}
+          remote_user: ${{ cloud_user }}
+          remote_password: ${{ Sameer@19 }}
+          remote_port: ${{ secrets.PORT }}
+          source: "dist/"
+          target: "/var/www/html/"

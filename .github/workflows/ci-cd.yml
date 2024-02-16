@@ -27,9 +27,9 @@ jobs:
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v2
         with:
-          server: ${{ 13.201.52.161 }}
-          remote_user: ${{ cloud_user }}
-          remote_password: ${{ Sameer@19 }}
-          remote_port: ${{ secrets.PORT }}
+          server: "${{ secrets.SERVER }}"
+          remote_user: "${{ secrets.cloud_user }}"
+          remote_password: "${{ secrets.Sameer@19 }}"
+          remote_port: "${{ secrets.PORT }}"
           source: "dist/"
           target: "/var/www/html/"

@@ -34,7 +34,20 @@ Welcome to the Online Exam Portal, a comprehensive web application that provides
 
    ```bash
    git clone https://github.com/sameer358/Online-Exam-portal
-Import the quiz.sql database 
-Admin Login Credential -> Username: Admin and password: Admin@123
+
+   
+Import quiz.sql database 
+
+```bash
+sudo mysql -u root -p quiz < /path/to/quiz.sql
+
+Database connection configuration
+$host = 'localhost';
+$username = 'root';
+$password = 'root';
+$database = 'quiz';
+
+Admin Login Credential ->
+Username: Admin and password: Admin@123
 
 
